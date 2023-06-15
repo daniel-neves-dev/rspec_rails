@@ -23,4 +23,9 @@ RSpec.describe Customer, type: :model do
   it "attributes_for" do
     puts attributes_for(:customer)
   end
+
+  it "transient" do
+    customer = create(:customer_default, upcase: true)
+    expect(customer.name.upcase).to eq(customer.name)
+  end
 end

@@ -1,5 +1,10 @@
 FactoryBot.define do
   factory :customer do
+
+    transient do
+      upcase {false}
+    end
+
     name {Faker::Name.name}
     email {Faker::Internet.email}
 
@@ -11,5 +16,9 @@ FactoryBot.define do
     factory :customer_default
     vip {false}
     days_to_pay {10}
+
+    after(:create) do |customer, evaluator|
+      customer.name.upcase! if evaluator.upcase
+    end
   end
 end
