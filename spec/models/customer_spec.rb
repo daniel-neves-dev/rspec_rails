@@ -19,4 +19,8 @@ RSpec.describe Customer, type: :model do
     customer = create(:customer_default)
     expect(customer.vip).to eq(false)
   end
+
+  it "attributes_for" do
+    puts attributes_for(:customer)
+  end
 end
