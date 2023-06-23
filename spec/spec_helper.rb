@@ -2,13 +2,6 @@ require 'webmock/rspec'
 
 RSpec.configure do |config|
 
-  Shoulda::Matchers.configure do |c|
-    c.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
-    end
-  end
-
   # config.before(:suite) do
   #   FactoryBot.lint
   # end

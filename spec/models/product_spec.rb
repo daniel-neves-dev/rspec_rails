@@ -6,26 +6,20 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
   end
 
-  it 'has no description, is invalid' do
-    product = build(:product, description: nil)
-    product.valid?
-    expect(product.errors[:description]).to include("can't be blank")
+  context 'Validates' do
+    it {is_expected.to validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:price) }
+    it { is_expected.to validate_presence_of(:category_id)}
+    end
+
+  context 'Associations' do
+    it {is_expected.to belong_to(:category)}
   end
 
-  it 'has no price, is invalid' do
-    product =  build(:product, price: nil)
-    product.valid?
-    expect(product.errors[:price]).to include("can't be blank")
-  end
-
-  it 'has no category, is invalid' do
-    product = build(:product, category_id: nil)
-    product.valid?
-    expect(product.errors[:category_id]).to include("can't be blank")
-  end
-
-  it 'product with full description' do
-    product = create(:product)
-    expect(product.full_description).to eq("#{product.description} - #{product.price}")
+  context 'Instance Methods' do
+    it 'product with full description' do
+      product = create(:product)
+      expect(product.full_description).to eq("#{product.description} - #{product.price}")
+    end
   end
 end
