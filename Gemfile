@@ -56,6 +56,7 @@ group :development, :test do
   gem 'faker'
   gem 'httparty'
   gem 'webmock'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
