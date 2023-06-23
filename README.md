@@ -1,11 +1,12 @@
-# README
+# RSpec on Rails
 
-A UDEMY RSpec on rails studying
+A Udemy project for learning RSpec in Ruby on Rails.
 
-Things you may want to cover:
+* Ruby version : 3.1.4
 
-* Ruby version: 3.1.4
+* Rails version: 7.0.4
 
-* Rails version: 7.0.4.3
+* It's work on localhost 3000
+
 
 
