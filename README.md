@@ -1,6 +1,6 @@
 # RSpec on Rails
 
-A simple project for learning RSpec in Ruby on Rails.
+A Udemy project for learning RSpec in Ruby on Rails.
 
 
 * Ruby version : 3.1.4
