@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe CustomersController, type: :controller do
   describe 'crud' do
 
+    context 'routes' do
+      it { is_expected.to route(:get, '/customers').to(action: :index) }
+    end
+
     before do
       @member = create(:member)
       @customer = create(:customer)
