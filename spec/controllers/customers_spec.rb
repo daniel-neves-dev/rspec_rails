@@ -22,21 +22,28 @@ RSpec.describe CustomersController, type: :controller do
 
     context 'as a member logged in' do
 
-      it 'flash notice' do
+      before do
         sign_in @member
+      end
+
+      it 'content type JSON' do
+        customer_params = attributes_for(:customer)
+        post :create, format: :json, params: {customer: customer_params}
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+
+      it 'flash notice' do
         customer_params = attributes_for(:customer)
         post :create, params: {customer: customer_params}
         expect(flash[:notice]).to match(/successfully create/)
       end
 
       it 'get/show' do
-        sign_in @member
         get :show, params: {id: @customer.id}
         expect(response).to have_http_status('200')
       end
 
       it 'get/create' do
-        sign_in @member
         customer_params = attributes_for(:customer)
         expect{
           post :create, params: {customer: customer_params}
