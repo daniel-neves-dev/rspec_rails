@@ -20,5 +20,10 @@ RSpec.feature "Customers", type: :feature do
       click_button('Create Customer')
       expect(page).to have_content("Customer was successfully created.")
     end
+
+    it 'find h1 title' do
+      visit(new_customer_url)
+      expect(find('h1')).to have_content('New customer')
+    end
   end
 end
