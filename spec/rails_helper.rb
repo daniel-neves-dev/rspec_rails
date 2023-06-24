@@ -20,6 +20,9 @@ Shoulda::Matchers.configure do |c|
 end
 
 RSpec.configure do |config|
+
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+
   config.include FactoryBot::Syntax::Methods
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
