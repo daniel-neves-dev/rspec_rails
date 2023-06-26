@@ -7,4 +7,4 @@ A Udemy project for learning RSpec in Ruby on Rails.
 
 * Rails version: 7.0.4
 
-* It's work on localhost 3000
+* On termianl type rails s to work on localhost 3000
